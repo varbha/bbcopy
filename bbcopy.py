@@ -1,7 +1,15 @@
 from selenium import webdriver
 import requests, bs4
+import os
 
-d = webdriver.Firefox()
+fp = webdriver.FirefoxProfile()
+
+fp.set_preference("browser.download.folderList",2)
+fp.set_preference("browser.download.manager.showWhenStarting",False)
+fp.set_preference("browser.download.dir", 'C:\\BBCopy')
+fp.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
+d = webdriver.Firefox(firefox_profile=fp)
 d.get("https://blackboard.svkm.ac.in")
 try:
     userid = d.find_element_by_id('user_id')
@@ -24,9 +32,18 @@ try:
     html = d.page_source
     #print(html)
     soup = bs4.BeautifulSoup(html,"html.parser")
-    ex = soup.select('.note')
-    ex = [ex[i] for i in range(2,len(ex),3)]
-    print(ex)
+    no_of_files = soup.select("ul.contentListPlain li")
+    print(len(no_of_files))
+    # l = len(no_of_files)
+    # i=1
+    # while(i<=l):
+    #     xpath = '//ul[@id="content_listContainer"]/li['+i+']/div[@class="details"]/span[@class="note"][3]'
+    #     list_of_files = d.find_element_by_xpath(xpath)
+    exp = d.find_element_by_id('anonymous_element_10')
+    exp.click()
+    file = d.find_element_by_xpath('//ul[@class="attachments clearfix"]/li[2]/a')
+    file.click()
+
 
 
 
