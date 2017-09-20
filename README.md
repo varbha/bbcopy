@@ -9,6 +9,7 @@ Running the code:
 <ul>
 <li>IMPORTANT: add geckodriver directory to PATH</li>
 <li>IMPORTANT: FireFox must be installed</li>
+<li>IMPORTANT: FireFox should always run on full screen mode - dont resize the window. Hides the elements</li>
 <li>Make a folder called <strong>BBCopy</strong> in the <strong>C:\</strong> drive.</li>
 <li>Run using python &lt<strong>filename.py</strong>&gt.</li>
 </ul>
