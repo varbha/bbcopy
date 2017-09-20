@@ -8,7 +8,7 @@ The following tools should be installed:
 Running the code:
 <ul>
 <li>IMPORTANT: add geckodriver directory to PATH</li>
-<li>FireFoX must be installed</li>
+<li>IMPORTANT: FireFox must be installed</li>
 <li>Make a folder called <strong>BBCopy</strong> in the <strong>C:\</strong> drive.</li>
 <li>Run using python &lt<strong>filename.py</strong>&gt.</li>
 </ul>
