@@ -103,12 +103,12 @@ try:
                 print(e)
                 continue
             try:
-                print("hereee")
-                file = d.find_element_by_xpath('//*[@id="currentAttempt_submissionList"]/li[1]') #I HATE absolute xpaths, but testing to see if faster than relative xpaths
-                #file = d.find_element_by_partial_link_text('currentAttempt_attemptFile_')
-                d.implicitly_wait(20)
-                file = d.find_element_by_class_name('dwnldBtn')
-                file.click()
+                try:
+                    file = d.find_element_by_class_name('dwnldBtn')
+                    file.click()
+                except:
+                    file = d.find_element_by_class_name('btn download')
+                    file.click()
                 print("File Found..")
                 print("Check destination folder for file download")
             except Exception as e:
